@@ -23,6 +23,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(new SimpleDrawingView(this));
+        setContentView(new SimpleDrawingView(this));
     }
 }

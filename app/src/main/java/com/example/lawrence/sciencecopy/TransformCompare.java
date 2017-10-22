@@ -67,16 +67,25 @@ public class TransformCompare {
         return translation(bitmap, number, 90);
     }
 
-    public Bitmap translation(Bitmap bitmap, int number, int angle) {
+    public Bitmap translation(Bitmap bitmap, double number, double angle) {
         Bitmap output = Bitmap.createBitmap(MainActivity.getScreenWidth(), MainActivity.getScreenHeight(), conf);
-        angle = (int)Math.toRadians(90 - angle);
+        angle = Math.toRadians(90 - angle);
         double outy;
         double outx;
+        int test;
         for(int x = 0; x < bitmap.getWidth(); x++) {
             for(int y = 0; y < bitmap.getWidth(); y++) {
-                output.setPixel((int)(Math.cos(angle) * number + x), (int)(Math.sqrt(Math.pow(number, 2) - Math.pow(Math.cos(angle) * number, 2)) + y), bitmap.getPixel(x, y));
+                try {
+                    output.setPixel((int) (Math.cos(angle) * number + x), (int) (Math.sqrt(Math.pow(number, 2) - Math.pow(Math.cos(angle) * number, 2)) + y), bitmap.getPixel(x, y));
+                }
+                catch(IllegalArgumentException e) {
+
+                }
+                test = (int)(Math.sqrt(Math.pow(number, 2) - Math.pow(Math.cos(angle) * number, 2)) + y);
+                int hi = 10;
             }
         }
+
         return  output;
     }
 

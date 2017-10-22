@@ -22,19 +22,11 @@ public class SimpleDrawingView extends View {
         image = (BitmapFactory.decodeResource(getResources(), R.drawable.pixelgun));
         compare = new TransformCompare(image, image, 10);
         drawPaint = new Paint();
-
-        if(compare.rotation(image, 89.9999999).sameAs(compare.rotation(image, 90))) {
-            Log.d("MainActivity", "True");
-        }
-        else {
-            Log.d("MainActivity", "False");
-        }
-
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
-        canvas.drawBitmap(compare.translation(image, 100, 45) , 0, 0, drawPaint);
+
     }
 
 }
